@@ -1,0 +1,66 @@
+Create venv : python -m venv venv
+	venv - virtual environment
+	venv - dir name
+	activate the virtual env : source venv/Scripts/activate
+
+Install django :
+	pip install Django
+	check version installed on system : python -m django --version
+
+Creating a project:
+	Check if your outside the env
+	django-admin startproject mysite
+	cd mysite
+Run the project : 
+	python manage.py runserver
+	http://127.0.0.1:8000/ or http://localhost:8000/
+Create app:
+	python manage.py startapp <<app_name>>
+	python manage.py startapp movie
+Install Requirements from file:
+	pip install -r requirements.txt 
+	pip install Pillow
+Create Migrations : 
+	./manage.py makemigrations
+
+./manage.py makemigrations
+←[36;1mMigrations for 'movie':←[0m
+  ←[1mmovie\migrations\0001_initial.py←[0m
+    - Create model Users
+    - Create model Booking
+    - Create model City
+    - Create model Movie
+    - Create model Screen
+    - Create model Screening
+    - Create model ScreenSeat
+    - Create model Theatre
+    - Create model ShowSeat
+    - Add field theatre_id to screen
+    - Create model Payment
+    - Create model MovieCast
+    - Add field screening_id to booking
+    - Add field user_id to booking
+
+./manage.py migrate
+←[36;1mOperations to perform:←[0m
+←[1m  Apply all migrations: ←[0madmin, auth, contenttypes, movie, sessions
+←[36;1mRunning migrations:←[0m
+  Applying contenttypes.0001_initial...←[32;1m OK←[0m
+  Applying contenttypes.0002_remove_content_type_name...←[32;1m OK←[0m
+  Applying auth.0001_initial...←[32;1m OK←[0m
+  Applying auth.0002_alter_permission_name_max_length...←[32;1m OK←[0m
+  Applying auth.0003_alter_user_email_max_length...←[32;1m OK←[0m
+  Applying auth.0004_alter_user_username_opts...←[32;1m OK←[0m
+  Applying auth.0005_alter_user_last_login_null...←[32;1m OK←[0m
+  Applying auth.0006_require_contenttypes_0002...←[32;1m OK←[0m 
+  Applying auth.0007_alter_validators_add_error_messages...←[32;1m OK←[0m
+  Applying auth.0008_alter_user_username_max_length...←[32;1m OK←[0m
+  Applying auth.0009_alter_user_last_name_max_length...←[32;1m OK←[0m
+  Applying auth.0010_alter_group_name_max_length...←[32;1m OK←[0m
+  Applying auth.0011_update_proxy_permissions...←[32;1m OK←[0m
+  Applying auth.0012_alter_user_first_name_max_length...←[32;1m OK←[0m
+  Applying movie.0001_initial...←[32;1m OK←[0m
+  Applying admin.0001_initial...←[32;1m OK←[0m
+  Applying admin.0002_logentry_remove_auto_add...←[32;1m OK←[0m
+  Applying admin.0003_logentry_add_action_flag_choices...←[32;1m OK←[0m
+  Applying sessions.0001_initial...←[32;1m OK←[0m
