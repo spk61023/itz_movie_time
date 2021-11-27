@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            a:link{
+                text-decoration: none!important;
+            }
+         </style>
+
+        <title>
+            itz_movie_time
+        </title>
+        <link rel="stylesheet" type = "text/css" href = "{% static 'css/bootstrap.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+        <link rel="stylesheet" href="{% static 'obfuscator/css/django_template_obfuscator.css' %}">
+        {% block css %}{% endblock css %}
+        {% block content %}{% endblock content %}
+        {% block extra_js %}{% endblock extra_js %}
+        <script src="https://use.fontawesome.com/185c2e0d51.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css" />
+        <script
+          src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          crossorigin="anonymous"></script>
+        <script
+          src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+          integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+        <script src="{% static 'obfuscator/js/django_template_obfuscator.js' %}"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% include 'base/navbar.html' %}
+        <!--meta-->
+        <meta name="description" content="Movie Booking Platform" />
+
+        <meta property="og:title" content="Movie Booking Platform" />
+
+        <meta property="og:description" content="Movie Booking Platform" />
+
+        <meta property="og:url" content="http://localhost:8000/" />
+
+        <meta property="og:image" content="{% static 'x.png' %}" />
+        <!--end-->
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body,html{
+                font-family: 'Open Sans', sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        {% block body %}
+
+        {% endblock %}
+        {% if request.user.is_authenticated %}
+            {% if user.is_active == "False" %}
+                <script>
+                    url = "{% url 'logout' %}";
+                    window.location = url;
+                </script>
+            {% endif %}
+        {% endif %}
+    </body>
+</html>

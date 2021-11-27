@@ -1,0 +1,23 @@
+{% extends 'base/user_base.html' %}
+{% load static %}
+{% block body %}
+    <div class="container">
+        {% if screen %}
+            <div class="card" style="width: 18rem;">
+            {% for detail in screen %}
+                <div class="card-body">
+                    <h4 class="card-title">Booking Details</h4>
+                    <p class="card-text">theatre_name : {{ detail.theatre_name }}</p>
+                    <p class="card-text">screen : {{ detail.screen }}</p>
+                    <p class="card-text">date : {{ detail.date }}</p>
+                    <p class="card-text">time : {{ detail.time }}</p>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary" onclick="location.href='{% url "seat_choice" detail.screening_id detail.screen.id %}'">Book </button>
+                <div>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

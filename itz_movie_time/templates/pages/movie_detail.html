@@ -1,0 +1,20 @@
+{% extends 'base/user_base.html' %}
+{% load static %}
+{% block body %}
+    <div class="container">
+        {% if movie_info %}
+            <div class="card mb-3">
+                <iframe width="853" height="480" src="{{ movie_info.trailer_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="card-body">
+                    <img class="img" src="{{movie_info.image.url}}" width = "250px">
+                    <h4 class="card-title">{{movie_info.name}}</h4>
+                    <p class="card-text">Rating : {{movie_info.rating}} | Genre : {{movie_info.genre}} | Language : {{movie_info.language}} | Duration : {{movie_info.duration}} Minutes</p>
+                    <p class="card-text">{{ movie_info.description}}</p>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary" onclick="location.href='{% url "book_ticket" movie_info.id %}'">Book Now</button>
+                <div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

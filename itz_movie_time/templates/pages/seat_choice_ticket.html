@@ -1,0 +1,21 @@
+{% extends 'base/user_base.html' %}
+{% load static %}
+{% block body %}
+    <div class="container">
+    {% if seats_available %}
+        {% for seat in seats_available %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h4 class="card-title">Seat Preferences</h4>
+                <p class="card-text">status : {{seat.status}}</p>
+                <p class="card-text">price : {{seat.price}}</p>
+                <p class="card-text">type : {{seat.type}}</p>
+            </div>
+            <div class="card-footer">
+                {% comment %} <button type="button" class="btn btn-primary" onclick="location.href='{% url "book_ticket" movie_info.id %}'">Book Now</button> {% endcomment %}
+            <div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+{% endblock %}

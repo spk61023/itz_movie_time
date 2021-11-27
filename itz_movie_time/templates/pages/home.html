@@ -1,0 +1,25 @@
+{% extends 'base/user_base.html' %}
+{% load static %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class = "container">
+    <div class="row">
+        {% if movie_list %}
+            {% for movie in movie_list %}
+            <div class="col-sm-6">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.name }}</h5>
+                    <img src="{{ movie.image.url }}" class="card-img-top" width = "250px" height = "250px">
+                    <p class="card-text">Rating : {{movie.rating}} | Genre : {{movie.genre}} | Language : {{movie.language}}</p>
+                    <button onclick="location.href='{% url "movie_detail" movie.id %}'" class="btn btn-primary">Book</button>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock%}
